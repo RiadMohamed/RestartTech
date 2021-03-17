@@ -16,6 +16,11 @@ class ViewController: UIViewController {
         }
     }
     
+    let sections: [String] = [
+        "Effects"
+    
+    ]
+    
     func setupUI() {
         searchBarView.layer.cornerRadius = 10
     }
@@ -92,6 +97,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.collectionViewCellIdentifier, for: indexPath)
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: K.collectionViewHeaderIdentifier, for: indexPath) as! SectionHeaderView
+//        sectionHeaderView.sectionTitleLabel.text =
     }
     
     
