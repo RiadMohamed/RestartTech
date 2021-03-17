@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var searchBarView: UIView!
     func setupUI() {
-        
+        searchBarView.layer.cornerRadius = 10
         
     }
     
