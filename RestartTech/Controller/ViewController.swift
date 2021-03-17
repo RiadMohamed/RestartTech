@@ -24,7 +24,23 @@ class ViewController: UIViewController {
             fatalError("Could not create the home URL")
         }
         
+        let homeResource = Resource<HomeResponse>(url: homeURL)
         
+        
+        Webservice.shared.load(resource: homeResource) { [weak self] (result) in
+            switch result {
+            case .success(let homeResponse):
+                print("Sucessful API Call")
+                print(homeResponse)
+            case .failure(.networkingError):
+                print("Failed API Call")
+            
+            case .failure(.JSONParingError):
+                print("Failed to parse the response")
+            case .failure(.urlParsingError):
+                print("Failed to parse the URL")
+            }
+        }
         
         
     }
