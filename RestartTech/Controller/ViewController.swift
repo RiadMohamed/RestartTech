@@ -8,16 +8,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var label: UILabel!
     @IBAction func buttonTapped(_ sender: UIButton) {
-        // Call the webservice 
+        // Call the webservice
+        populateHome()
     }
     
-
+    private func populateHome() {
+        guard let homeURL = URL(string: K.homeURL) else {
+            fatalError("Could not create the home URL")
+        }
+        
+        
+        
+        
+    }
+    
 }
-

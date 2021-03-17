@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C61162E26025F460040E59A /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C61162D26025F460040E59A /* K.swift */; };
+		0C611631260261470040E59A /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C611630260261470040E59A /* HomeResponse.swift */; };
 		0CE1EB3B26025929001B0B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB3A26025929001B0B6A /* AppDelegate.swift */; };
 		0CE1EB3D26025929001B0B6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB3C26025929001B0B6A /* SceneDelegate.swift */; };
 		0CE1EB3F26025929001B0B6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB3E26025929001B0B6A /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		0C61162D26025F460040E59A /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		0C611630260261470040E59A /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		0CE1EB3726025929001B0B6A /* RestartTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestartTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE1EB3A26025929001B0B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE1EB3C26025929001B0B6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				0CE1EB5426025B2F001B0B6A /* WebService.swift */,
 				0C61162D26025F460040E59A /* K.swift */,
+				0C611630260261470040E59A /* HomeResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				0C61162E26025F460040E59A /* K.swift in Sources */,
 				0CE1EB3B26025929001B0B6A /* AppDelegate.swift in Sources */,
 				0CE1EB5526025B2F001B0B6A /* WebService.swift in Sources */,
+				0C611631260261470040E59A /* HomeResponse.swift in Sources */,
 				0CE1EB3D26025929001B0B6A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
