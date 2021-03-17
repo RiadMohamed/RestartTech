@@ -10,9 +10,25 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var searchBarView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet{
+            collectionView.collectionViewLayout = setupCollectionView()
+        }
+    }
+    
     func setupUI() {
         searchBarView.layer.cornerRadius = 10
+    }
+    
+    func setupCollectionView() -> UICollectionViewCompositionalLayout {
         
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(150), heightDimension: .estimated(150))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(200))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
     override func viewDidLoad() {
@@ -26,6 +42,12 @@ class ViewController: UIViewController {
 //        populateHome()
 //    }
     
+    
+}
+
+
+// MARK: - Networking Module of the VC
+extension ViewController {
     private func populateHome() {
         guard let homeURL = URL(string: K.homeURL) else {
             fatalError("Could not create the home URL")
@@ -53,8 +75,24 @@ class ViewController: UIViewController {
                 print("Failed to parse the URL")
             }
         }
-        
-        
     }
+}
+
+
+// MARK: - CollectionView Module
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.collectionViewCellIdentifier, for: indexPath)
+        return cell
+    }
+    
     
 }
