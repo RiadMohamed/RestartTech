@@ -31,7 +31,9 @@ class ViewController: UIViewController {
             switch result {
             case .success(let homeResponse):
                 print("Sucessful API Call")
-                print(homeResponse)
+                DispatchQueue.main.async {
+                    self!.label.text = homeResponse.data?.hotSpots[1].categories?.first?.name
+                }
             case .failure(.networkingError):
                 print("Failed API Call")
             

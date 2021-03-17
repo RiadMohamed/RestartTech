@@ -12,6 +12,7 @@ struct HomeResponse: Codable {
     private enum CodingKeys: String, CodingKey {
         case statusCode = "status_code"
         case message = "message"
+        case data = "data"
     }
     var message: String
     var data: HomeData?
