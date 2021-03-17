@@ -9,15 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    func setupUI() {
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupUI()
     }
-    @IBOutlet weak var label: UILabel!
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        // Call the webservice
-        populateHome()
-    }
+    
+//    @IBAction func buttonTapped(_ sender: UIButton) {
+//        // Call the webservice
+//        populateHome()
+//    }
     
     private func populateHome() {
         guard let homeURL = URL(string: K.homeURL) else {
@@ -31,12 +37,12 @@ class ViewController: UIViewController {
             switch result {
             case .success(let homeResponse):
                 print("Sucessful API Call")
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
 //                    self!.label.text = homeResponse.data?.hotSpots[1].desc
 //                    self!.label.text = homeResponse.data?.events[1].desc
-                    self!.label.text = homeResponse.data?.attractions[1].desc
-                    
-                }
+//                    self!.label.text = homeResponse.data?.attractions[1].desc
+//
+//                }
             case .failure(.networkingError):
                 print("Failed API Call")
             
