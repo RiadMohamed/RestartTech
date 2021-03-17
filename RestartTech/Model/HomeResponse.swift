@@ -20,10 +20,11 @@ struct HomeResponse: Codable {
 
 struct HomeData: Codable {
 //    var attractions: [Attraction] = []
-//    var events: [Event] = []
+    var events: [Event] = []
     var hotSpots: [HotSpot] = []
     private enum CodingKeys: String, CodingKey {
         case hotSpots = "hot_spots"
+        case events = "events"
     }
 }
 
@@ -34,10 +35,15 @@ struct HomeData: Codable {
 //    var description: String? = nil
 //
 //}
-//
-//struct Event: Codable {
-//
-//}
+
+struct Event: Codable {
+    var name: String?
+    var desc: String?
+    private enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case desc = "short_description"     // Using short desc from the JSON response instead of description
+    }
+}
 
 struct HotSpot: Codable {
     var name: String?
