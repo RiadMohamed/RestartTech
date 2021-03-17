@@ -13,7 +13,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    @IBOutlet weak var label: UILabel!
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        
+    }
+    
 
 }
 
