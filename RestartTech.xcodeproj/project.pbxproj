@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C5D0A842603770E00DB936B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5D0A832603770D00DB936B /* TabBarController.swift */; };
+		0C5D0A872603788F00DB936B /* MyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5D0A862603788E00DB936B /* MyTabBar.swift */; };
 		0C61162E26025F460040E59A /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C61162D26025F460040E59A /* K.swift */; };
 		0C611631260261470040E59A /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C611630260261470040E59A /* HomeResponse.swift */; };
 		0C9FA8692602BB780076D7F4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FA8682602BB770076D7F4 /* CollectionViewCell.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0C5D0A832603770D00DB936B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0C5D0A862603788E00DB936B /* MyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBar.swift; sourceTree = "<group>"; };
 		0C61162D26025F460040E59A /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		0C611630260261470040E59A /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		0C9FA8682602BB770076D7F4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				0CE1EB4026025929001B0B6A /* Main.storyboard */,
 				0C9FA8682602BB770076D7F4 /* CollectionViewCell.swift */,
 				0C9FA86B2602C01D0076D7F4 /* SectionHeaderView.swift */,
+				0C5D0A862603788E00DB936B /* MyTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				0CE1EB3F26025929001B0B6A /* ViewController.swift in Sources */,
 				0C61162E26025F460040E59A /* K.swift in Sources */,
 				0CE1EB3B26025929001B0B6A /* AppDelegate.swift in Sources */,
+				0C5D0A872603788F00DB936B /* MyTabBar.swift in Sources */,
 				0C5D0A842603770E00DB936B /* TabBarController.swift in Sources */,
 				0C9FA86C2602C01D0076D7F4 /* SectionHeaderView.swift in Sources */,
 				0C9FA8692602BB780076D7F4 /* CollectionViewCell.swift in Sources */,

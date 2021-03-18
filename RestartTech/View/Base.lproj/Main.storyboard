@@ -240,9 +240,9 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ath-Wo-Q5m">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cUG-6N-pv0" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cUG-6N-pv0" customClass="TabBarController" customModule="RestartTech" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tH5-Zo-0yp">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tH5-Zo-0yp" customClass="MyTabBar" customModule="RestartTech" customModuleProvider="target">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -290,6 +290,11 @@
             <point key="canvasLocation" x="2154" y="-618"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="tH5-Zo-0yp">
+            <size key="intrinsicContentSize" width="-1" height="49"/>
+        </designable>
+    </designables>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="big_header" width="375" height="280"/>
