@@ -231,7 +231,7 @@
                         <viewLayoutGuide key="safeArea" id="lu2-VO-5YP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="search_grey_bottom_icon" id="0Xg-WV-RZA"/>
+                    <tabBarItem key="tabBarItem" title="" image="search_grey_bottom_icon" selectedImage="search_bottom_icon" id="0Xg-WV-RZA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NbM-Kq-S0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,7 +269,7 @@
                         <viewLayoutGuide key="safeArea" id="RkK-bz-xkq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="Group 100" id="Yp0-Kz-P7h"/>
+                    <tabBarItem key="tabBarItem" title="" image="Group 100" selectedImage="Combined-Shape" id="Yp0-Kz-P7h"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8v-CX-1XT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,7 +285,7 @@
                         <viewLayoutGuide key="safeArea" id="nfK-MQ-8yF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="profile_grey_bottom_icon" id="ckZ-Hz-Nok"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile_grey_bottom_icon" selectedImage="profile_bottom_icon" id="ckZ-Hz-Nok"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJR-EX-2QD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,6 +298,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="Combined-Shape" width="28" height="28"/>
         <image name="Group 100" width="28" height="28"/>
         <image name="Home_bottom_icon" width="29" height="29"/>
         <image name="Home_grey_bottom_icon" width="29" height="29"/>
@@ -308,7 +309,9 @@
         <image name="hotspot_icon" width="20" height="20"/>
         <image name="location_search_icon" width="14" height="14"/>
         <image name="location_white" width="11" height="15"/>
+        <image name="profile_bottom_icon" width="22" height="30"/>
         <image name="profile_grey_bottom_icon" width="22" height="30"/>
+        <image name="search_bottom_icon" width="30" height="30"/>
         <image name="search_grey_bottom_icon" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

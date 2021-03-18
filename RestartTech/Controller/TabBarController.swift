@@ -16,10 +16,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         setupMiddleButton()
-//        self.tabBar.isTranslucent = true
-        UITabBar.appearance().backgroundImage = UIImage()
-//        UITabBar.appearance().shadowImage = UIImage()
-//        UITabBar.appearance().clipsToBounds = true
     }
     
     func setupMiddleButton() {
