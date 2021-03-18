@@ -31,9 +31,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func setupMiddleButton() {
         // Create the button
-        let fanMenu = FanMenu(frame: CGRect(x: ((self.view.bounds.width/2)-30), y: -30, width: 60, height: 60))
+        let fanMenu = FanMenu()
         
-        fanMenu.layer.cornerRadius = 30
+//        fanMenu.layer.cornerRadius = 30
         
         fanMenu.button = FanMenuButton(
             id: "main",
@@ -41,7 +41,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             color: Color(val: 0x7c93fe)
         )
         
-        fanMenu.menuRadius = 90
+//        fanMenu.menuRadius = 90
         
         fanMenu.items = [
             FanMenuButton(id: "hotspots", image: UIImage(named: "hotspot_icon"), color: Color(val: 0x7c93fe), title: "Hotspots", titleColor: Color(val: 0x7c93fe), titlePosition: .bottom),
@@ -64,7 +64,24 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.tabBar.addSubview(fanMenu)
 //        middleBtn.addTarget(self, action: #selector(self.menuButtonTapped), for: .touchUpInside)
         
-        self.view.layoutIfNeeded()
+        fanMenu.translatesAutoresizingMaskIntoConstraints = false
+        fanMenu.backgroundColor = .clear
+        
+//        fanMenu.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        fanMenu.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
+//        fanMenu.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        fanMenu.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 10).isActive = true
+//        fanMenu.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: 10).isActive = true
+        
+        fanMenu.frame.origin = self.view.bounds.origin
+        
+        
+//        NSLayoutConstraint.activate([
+//            fanMenu.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+//            fanMenu.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+//            fanMenu.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+//            fanMenu.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+//        ])
     }
     
     @objc func menuButtonTapped(sender: UIButton) {
