@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import FanMenu
+
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+//    @IBSegueAction func showFAB(_ coder: NSCoder) -> UIViewController? {
+//        let fab = FAB()
+////        return UIHostingController(coder: coder, rootView: fab)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +29,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func setupMiddleButton() {
         // Create the button
-        let middleBtn = UIButton(frame: CGRect(x: ((self.view.bounds.width/2)-25), y: -20, width: 50, height: 50))
+        
         
         // Button Customization
-        middleBtn.setImage(UIImage(named: "bellman_bottom-icon"), for: .normal)
+//        middleBtn.setImage(UIImage(named: "bellman_bottom-icon"), for: .normal)
         
         // Register the button and the tap event
-        self.tabBar.addSubview(middleBtn)
-        middleBtn.addTarget(self, action: #selector(self.menuButtonTapped), for: .touchUpInside)
+//        self.tabBar.addSubview(fanMenu)
+//        middleBtn.addTarget(self, action: #selector(self.menuButtonTapped), for: .touchUpInside)
         
         self.view.layoutIfNeeded()
     }

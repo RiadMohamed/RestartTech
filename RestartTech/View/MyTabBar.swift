@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable
+
 class MyTabBar: UITabBar {
     private var shapeLayer: CAShapeLayer?
     

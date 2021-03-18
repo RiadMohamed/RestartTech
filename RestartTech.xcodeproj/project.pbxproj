@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -133,7 +133,6 @@
 				7BB21734F029702F00750E66 /* Pods-RestartTech.debug.xcconfig */,
 				F87AE04612553880A1F61C2E /* Pods-RestartTech.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
