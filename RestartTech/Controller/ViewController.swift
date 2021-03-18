@@ -16,10 +16,9 @@ class ViewController: UIViewController {
         }
     }
     
-    let sections: [String] = [
-        "Effects"
+//    var homeSections:[HomeSection] = []
     
-    ]
+    var homeSections: [String:HomeSection] = [:]
     
     func setupUI() {
         searchBarView.layer.cornerRadius = 10
@@ -40,6 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
+        fetchHomeData()
     }
     
 //    @IBAction func buttonTapped(_ sender: UIButton) {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 
 // MARK: - Networking Module of the VC
 extension ViewController {
-    private func populateHome() {
+    private func fetchHomeData() {
         guard let homeURL = URL(string: K.homeURL) else {
             fatalError("Could not create the home URL")
         }
@@ -65,12 +65,20 @@ extension ViewController {
             switch result {
             case .success(let homeResponse):
                 print("Sucessful API Call")
-//                DispatchQueue.main.async {
-//                    self!.label.text = homeResponse.data?.hotSpots[1].desc
-//                    self!.label.text = homeResponse.data?.events[1].desc
-//                    self!.label.text = homeResponse.data?.attractions[1].desc
-//
-//                }
+                guard let safeData = homeResponse.data else {
+                    print("Failed to get data from Home Response")
+                    return
+                }
+                
+                self!.homeSections["Events"]?.elements = safeData.events
+                self!.homeSections["Events"]?.imageString = "events_icon"    // Change this to the image
+                
+                self!.homeSections["Attractions"]?.elements = safeData.attractions
+                self!.homeSections["Attractions"]?.imageString = "attractions_icon"
+                
+                self!.homeSections["HotSpots"]?.elements = safeData.hotSpots
+                self!.homeSections["HotSpots"]?.imageString = "hotspot_icon"
+                
             case .failure(.networkingError):
                 print("Failed API Call")
             
