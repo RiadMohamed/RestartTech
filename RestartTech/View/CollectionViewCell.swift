@@ -12,9 +12,11 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     
-    var imageURL: URL! {
-        didSet{
-            // Load the imageURL into the imageView
+    var item: String! {
+        didSet {
+            imageView.image = UIImage(named: "big_header")
+            titleLabel.text = item
+            subtitleLabel.text = item
         }
     }
     

@@ -44,6 +44,11 @@ struct HomeSection: Codable {
     var elements:[SectionData]?
 }
 
+struct MySection {
+    var name: String
+    var imageName: String
+    var data: [String]
+}
 
 //
 //struct Attraction: Codable {

@@ -16,9 +16,19 @@ class ViewController: UIViewController {
         }
     }
     
-//    var homeSections:[HomeSection] = []
+    var homeSections:[HomeSection] = []
+    let layout = UICollectionViewLayout()
     
-    var homeSections: [String:HomeSection] = [:]
+    func setupCollectionViewLayout() {
+        
+    }
+    
+    
+    var defaultData = [
+        MySection(name: "Events", imageName: "events_icon", data: ["1", "2", "3"]),
+        MySection(name: "Attractions", imageName: "attractions_icon", data: ["4", "5", "6"]),
+        MySection(name: "Hot Spots", imageName: "hotspot_icon", data: ["7", "8", "9"])
+    ]
     
     func setupUI() {
         searchBarView.layer.cornerRadius = 10
@@ -39,7 +49,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
-        fetchHomeData()
+        
+        self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: K.collectionViewHeaderIdentifier)
+//        fetchHomeData()
     }
     
 //    @IBAction func buttonTapped(_ sender: UIButton) {
@@ -70,14 +82,13 @@ extension ViewController {
                     return
                 }
                 
-                self!.homeSections["Events"]?.elements = safeData.events
-                self!.homeSections["Events"]?.imageString = "events_icon"    // Change this to the image
+                self!.homeSections.append(HomeSection(name: "Events", imageString: "events_icon", elements: safeData.events))
                 
-                self!.homeSections["Attractions"]?.elements = safeData.attractions
-                self!.homeSections["Attractions"]?.imageString = "attractions_icon"
+                self!.homeSections.append(HomeSection(name: "Attractions", imageString: "attractions_icon", elements: safeData.attractions))
                 
-                self!.homeSections["HotSpots"]?.elements = safeData.hotSpots
-                self!.homeSections["HotSpots"]?.imageString = "hotspot_icon"
+                self!.homeSections.append(HomeSection(name: "Hot Spots", imageString: "hotspot_icon", elements: safeData.hotSpots))
+                
+                self!.collectionView.reloadData()
                 
             case .failure(.networkingError):
                 print("Failed API Call")
@@ -95,20 +106,47 @@ extension ViewController {
 // MARK: - CollectionView Module
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return defaultData[section].data.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return defaultData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.collectionViewCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.collectionViewCellIdentifier, for: indexPath) as! CollectionViewCell
+        
+        let section = defaultData[indexPath.section]
+        cell.item = section.data[indexPath.item]
+        
+//        cell.titleLabel.text = homeSections[indexPath.section].elements?[indexPath.row].name
+//        cell.subtitleLabel.text = homeSections[indexPath.section].elements?[indexPath.row].desc
+//        cell.imageView.image = UIImage(named: "big_header") // Setting the default image as the header image until the image API gets fixed.
+        
         return cell
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: K.collectionViewHeaderIdentifier, for: indexPath) as! SectionHeaderView
-//        sectionHeaderView.sectionTitleLabel.text =
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            print("Checkpoint")
+            let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: K.collectionViewHeaderIdentifier, for: indexPath) as! SectionHeaderView
+            
+    //        let section = homeSections[indexPath.section]
+    //        sectionHeaderView.sectionTitleLabel.text = section.name
+    //        sectionHeaderView.imageView.image = UIImage(named: section.imageString!)
+    //        return sectionHeaderView
+            
+            sectionHeaderView.homeSection = defaultData[indexPath.section]
+            return sectionHeaderView
+        }
+        else {
+            print("FAILLEDD")
+            return UICollectionReusableView()
+        }
+        
+        
     }
     
     
