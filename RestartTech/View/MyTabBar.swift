@@ -10,6 +10,9 @@ import UIKit
 @IBDesignable
 class MyTabBar: UITabBar {
     private var shapeLayer: CAShapeLayer?
+    
+    
+    
     private func addShape() {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPath()
@@ -41,12 +44,12 @@ class MyTabBar: UITabBar {
         path.move(to: CGPoint(x: 0, y: 0))
         path.addLine(to: CGPoint(x: (centerWidth-height*2), y: 0))
         path.addCurve(to: CGPoint(x: centerWidth, y: height),
-                      controlPoint1: CGPoint(x: (centerWidth-30), y: 0),
-                      controlPoint2: CGPoint(x: (centerWidth-35), y: height))
+                      controlPoint1: CGPoint(x: (centerWidth-15), y: 0),
+                      controlPoint2: CGPoint(x: (centerWidth-25), y: height))
         
         path.addCurve(to: CGPoint(x: (centerWidth + height * 2), y: 0),
-                      controlPoint1: CGPoint(x: (centerWidth + 35), y: height),
-                      controlPoint2: CGPoint(x: (centerWidth + 30), y: 0))
+                      controlPoint1: CGPoint(x: (centerWidth + 25), y: height),
+                      controlPoint2: CGPoint(x: (centerWidth + 15), y: 0))
         
         path.addLine(to: CGPoint(x: self.frame.width, y: 0))
         path.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))

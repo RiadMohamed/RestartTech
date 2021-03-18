@@ -16,6 +16,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         setupMiddleButton()
+//        self.tabBar.itemWidth = 10
+//        self.tabBar.itemPositioning = .fill
+//        self.tabBar.itemSpacing = 140
     }
     
     func setupMiddleButton() {
