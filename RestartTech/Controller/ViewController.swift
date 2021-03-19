@@ -22,33 +22,37 @@ class ViewController: UIViewController {
     var homeSections:[HomeSection] = []
     
     override func viewDidAppear(_ animated: Bool) {
-//        UIApplication.shared.keyWindow!.bringSubviewToFront(fanMenu)
         if let tabBarController = self.tabBarController {
+            // Add the fanMenu as a child to the TabBar so it can be on top the TabBar view.
             tabBarController.view.addSubview(fanMenu)
         }
     }
     
     func setupFanMenu() {
+        // Create the Main Button
         fanMenu.button = FanMenuButton(
             id: "main",
             image: UIImage(named: "bellman_bottom-icon"),
             color: Color(val: 0x7c93fe)
         )
         
+        // Create the items buttons
         fanMenu.items = [
             FanMenuButton(id: "hotspots", image: UIImage(named: "hotspot_icon"), color: Color(val: 0xFFFFFF), title: "Hotspots", titleColor: Color(val: 0x0), titlePosition: .bottom),
             FanMenuButton(id: "events", image: UIImage(named: "events_icon"), color: Color(val: 0xFFFFFF), title: "Events", titleColor: Color(val: 0x0), titlePosition: .bottom),
             FanMenuButton(id: "attractions", image: UIImage(named: "attarctions_icon"), color: Color(val: 0xFFFFFF), title: "Attractions", titleColor: Color(val: 0x0), titlePosition: .bottom),
-            FanMenuButton(id: "map", image: UIImage(named: "location_white"), color: Color(val: 0xFFFFFF), title: "Map", titleColor: Color(val: 0x0), titlePosition: .bottom)
+            FanMenuButton(id: "map", image: UIImage(named: "small_grey_location_pin"), color: Color(val: 0xFFFFFF), title: "Map", titleColor: Color(val: 0x0), titlePosition: .bottom)
         ]
         
+        // Style the fanMenu
         fanMenu.menuRadius = 90.0
         fanMenu.duration = 0.2
         fanMenu.delay = 0.05
         fanMenu.interval = (Double.pi, 2 * Double.pi)
-        
         fanMenu.menuBackground = .clear
+        fanMenu.backgroundColor = .clear
         
+        // Handlers for the fanMenu events
         fanMenu.onItemWillClick = {button in
             print("Item \(button.id) Will Click")
         }
@@ -56,11 +60,9 @@ class ViewController: UIViewController {
         fanMenu.onItemDidClick = {button in
             print("Item \(button.id) Did Click")
         }
-        
-        fanMenu.backgroundColor = .clear
     }
     
-    
+   // Default data for testing purposes of the collectionView
     var defaultData = [
         MySection(name: "Events", imageName: "events_icon", data: ["1", "2", "3"]),
         MySection(name: "Attractions", imageName: "attractions_icon", data: ["4", "5", "6"]),
@@ -84,34 +86,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Setup the main components of the Hoem Screen
         setupUI()
+        
+        // Setup the Fan Menu
         setupFanMenu()
+        
+        // Register the custom section class of the CollectionView Section
         self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: K.collectionViewHeaderIdentifier)
-//        fetchHomeData()
+        fetchHomeData()
     }
-    
-//    @IBAction func buttonTapped(_ sender: UIButton) {
-//        // Call the webservice
-//        populateHome()
-//    }
-    
-    
 }
 
 
 // MARK: - Networking Module of the VC
 extension ViewController {
     private func fetchHomeData() {
+        // Setup the base URL
         guard let homeURL = URL(string: K.homeURL) else {
             fatalError("Could not create the home URL")
         }
         
+        // Setup the local Resource
         let homeResource = Resource<HomeResponse>(url: homeURL)
         
-        
+        // Call the webservice and pass the resource to initiate the request
         Webservice.shared.load(resource: homeResource) { [weak self] (result) in
             switch result {
+            // Response received and parsed.
             case .success(let homeResponse):
                 print("Sucessful API Call")
                 guard let safeData = homeResponse.data else {
