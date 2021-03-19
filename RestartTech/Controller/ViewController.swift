@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import FanMenu
+import Macaw
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var fanMenu: FanMenu!
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet{
@@ -17,10 +20,44 @@ class ViewController: UIViewController {
     }
     
     var homeSections:[HomeSection] = []
-    let layout = UICollectionViewLayout()
     
-    func setupCollectionViewLayout() {
+    override func viewDidAppear(_ animated: Bool) {
+//        UIApplication.shared.keyWindow!.bringSubviewToFront(fanMenu)
+        if let tabBarController = self.tabBarController {
+            tabBarController.view.addSubview(fanMenu)
+        }
+    }
+    
+    func setupFanMenu() {
+        fanMenu.button = FanMenuButton(
+            id: "main",
+            image: UIImage(named: "bellman_bottom-icon"),
+            color: Color(val: 0x7c93fe)
+        )
         
+        fanMenu.items = [
+            FanMenuButton(id: "hotspots", image: UIImage(named: "hotspot_icon"), color: Color(val: 0xFFFFFF), title: "Hotspots", titleColor: Color(val: 0x0), titlePosition: .bottom),
+            FanMenuButton(id: "events", image: UIImage(named: "events_icon"), color: Color(val: 0xFFFFFF), title: "Events", titleColor: Color(val: 0x0), titlePosition: .bottom),
+            FanMenuButton(id: "attractions", image: UIImage(named: "attarctions_icon"), color: Color(val: 0xFFFFFF), title: "Attractions", titleColor: Color(val: 0x0), titlePosition: .bottom),
+            FanMenuButton(id: "map", image: UIImage(named: "location_white"), color: Color(val: 0xFFFFFF), title: "Map", titleColor: Color(val: 0x0), titlePosition: .bottom)
+        ]
+        
+        fanMenu.menuRadius = 90.0
+        fanMenu.duration = 0.2
+        fanMenu.delay = 0.05
+        fanMenu.interval = (Double.pi, 2 * Double.pi)
+        
+        fanMenu.menuBackground = .clear
+        
+        fanMenu.onItemWillClick = {button in
+            print("Item \(button.id) Will Click")
+        }
+        
+        fanMenu.onItemDidClick = {button in
+            print("Item \(button.id) Did Click")
+        }
+        
+        fanMenu.backgroundColor = .clear
     }
     
     
@@ -49,7 +86,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
-        
+        setupFanMenu()
         self.collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: K.collectionViewHeaderIdentifier)
 //        fetchHomeData()
     }
