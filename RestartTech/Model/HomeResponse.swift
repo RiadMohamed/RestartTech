@@ -32,6 +32,7 @@ struct HomeData: Codable {
 struct SectionData: Codable {
         var name: String?
         var desc: String?
+    // This is where the photo property needs to be added as well however it not operative as the link for the photo is down
         private enum CodingKeys: String, CodingKey {
             case name = "name"
             case desc = "description"
@@ -44,36 +45,9 @@ struct HomeSection: Codable {
     var elements:[SectionData]?
 }
 
+// For testing purposes only.
 struct MySection {
     var name: String
     var imageName: String
     var data: [String]
 }
-
-//
-//struct Attraction: Codable {
-//    var name: String?
-//    var desc: String?
-//    private enum CodingKeys: String, CodingKey {
-//        case name = "name"
-//        case desc = "description"
-//    }
-//}
-//
-//struct Event: Codable {
-//    var name: String?
-//    var desc: String?
-//    private enum CodingKeys: String, CodingKey {
-//        case name = "name"
-//        case desc = "description"
-//    }
-//}
-//
-//struct HotSpot: Codable {
-//    var name: String?
-//    var desc: String?
-//    private enum CodingKeys: String, CodingKey {
-//        case name = "name"
-//        case desc = "description"
-//    }
-//}
