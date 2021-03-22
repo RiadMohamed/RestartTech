@@ -1,0 +1,6 @@
+framework module Pods_RestartTech {
+  umbrella header "Pods-RestartTech-umbrella.h"
+
+  export *
+  module * { export * }
+}

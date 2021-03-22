@@ -1,0 +1,28 @@
+PODS:
+  - FanMenu (0.7.5):
+    - Macaw
+  - FloatingButton (0.0.3)
+  - Macaw (0.9.7):
+    - SWXMLHash
+  - SWXMLHash (5.0.1)
+
+DEPENDENCIES:
+  - FanMenu
+  - FloatingButton
+
+SPEC REPOS:
+  trunk:
+    - FanMenu
+    - FloatingButton
+    - Macaw
+    - SWXMLHash
+
+SPEC CHECKSUMS:
+  FanMenu: f26be76147954666be0b89ae6ffeb12b72167f2b
+  FloatingButton: 51171092f46a7a538ad24c2b0f5478ac6d7c101e
+  Macaw: 4a931baf9a9826b06d0d8ecf300014c962ab9d50
+  SWXMLHash: 9cc0c2e4807926c74377724aa8722ee5707a0485
+
+PODFILE CHECKSUM: 99b3f18abb305c78b37b72731cac764c2a9c5473
+
+COCOAPODS: 1.8.4
